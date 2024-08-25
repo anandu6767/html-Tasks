@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <link rel="stylesheet" href="registerform.css">  
+</head>
+<body>
+    <div class="top-container">
+         <!-- Container for the event details and banner image -->
+        <div class="event-details">
+            <h1>Event Registration Form</h1>
+            <div class="line-divider">
+                <hr> <!-- Divider line below the event title -->
+            </div>
+            <div class="event-details-child">
+                <p>Event Name: Digital Marketing Masterclass</p>
+                <p>Date: October 15, 2028</p>
+                <p>Time: 2:00 PM - 4:00 PM</p>
+                <p>Speaker: Sarah Johnson (Digital Marketing Expert)</p>
+                <p>Organizer: Rise Marketing</p>
+                <p>More Information: www.risemarketing.com</p>
+            </div>
+        </div>
+        <img src="eventimage.jpeg" alt="Digital Marketing Masterclass Banner">
+    </div>
+    <div class="participant-container">
+         <!-- Main form container -->
+        <form id="form1" onsubmit="return validateForm()">
+        <h2 class="squareborder">Participant Information</h2>
+            <div class="form-group">
+                <div>
+                    <label for="full-name">Full Name</label>
+                    <input type="text" id="full-name" name="full_name" class="full_name-input" onblur="validateFullName()" >
+                    <span id="name-error" class="error"></span>
+                </div>
+                <div>
+                    <label for="dob">Date of Birth</label>
+                    <input type="text" id="dob" name="dob" class="dob-input" placeholder="DD/MM/YYYY" onblur="validateDOB()" >
+                    <span id="dob-error" class="error"></span>
+                </div>
+            </div>
+            <label for="gender">Gender</label>
+            <div class="gender-group">
+                <label><input type="radio" name="gender" value="male" > Male</label>
+                <label><input type="radio" name="gender" value="female" > Female</label>
+                <span id="gender-error" class="error"></span> <!-- Error message for gender selection -->
+        
+            </div>
+            <div class="form-group">
+                <div>
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" class="phone_number-input" onblur="validatePhone()">
+                    <span id="phone-error" class="error"></span>
+
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="email-input" onblur="validateEmail()">
+                    <span id="email-error" class="error"></span>
+                </div>
+            </div>
+            <label for="source">Where did you hear about this virtual event?</label>
+            <div class="source-group">
+                <!-- Source of information section -->
+                <label><input type="radio" name="source" value="Facebook" > Facebook</label>
+                <label><input type="radio" name="source" value="Youtube" > Youtube</label>
+                <label><input type="radio" name="source" value="Instagram"> Instagram</label>
+                <label><input type="radio" name="source" value="Twitter"> Twitter</label>
+                <label><input type="radio" name="source" value="others"> Others</label>
+            </div>
+            <span id="source-error" class="error"></span>
+            <h2 class="squareborder">Payment Information</h2>
+            <div class="form-group">
+                <div>
+                <label for="tickets">Number of Tickets</label>
+                <input type="text" id="tickets" name="tickets" class="ticket-input" onfocusout="validateTickets()">
+                <span id="tickets-error" class="error"></span>
+                </div>
+            </div>
+            <label>Payment Method:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="payment_method" value="Credit Card" > Credit Card</label>
+                <label><input type="radio" name="payment_method" value="Debit Card" > Debit Card</label>
+                <label><input type="radio" name="payment_method" value="Cash" > Cash</label>
+                <span id="payment-error" class="error"></span>
+            </div>
+            <div class="declaration-container">
+                  <!-- Declaration and agreement section -->
+                <input type="checkbox" name="agreement">
+                <div class="declaration-text">
+                    <p>I understand that participation in this event may involve some degree of risk. I release Rise Marketing from any liability for injury, loss, or damage to personal property.</p>
+                    <span id="agreement-error" class="error"></span>
+                </div>
+                <div class="image-container">
+                    <img src="sign1.jpeg" alt="Participant Signature" class="declaration-image">
+                </div>
+            </div>
+            <button type="submit" id="button">Submit</button>
+        </form>
+    </form>
+    </div>
+    </body>
+    <script src="registerform.js"></script>
+    
+</html>

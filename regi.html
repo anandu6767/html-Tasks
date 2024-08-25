@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .container {
+            width: 100%;
+            height: auto; /* Adjust height to fit content */
+            background-color: rgba(34, 54, 86, 255);
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            overflow-y: auto;
+            position: relative;
+        }
+        .line-divider {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .line-divider hr {
+            border: none;
+            border-top: 2px solid #ffffff;
+            margin: 0;
+            width: 26%;
+        }
+        .event-details {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 17px;
+        }
+        .event-details1 {
+            color: rgba(196, 209, 229, 255);
+            font-size: 14px;
+            padding-left: 20px;
+        }
+        .container img {
+            position: absolute;
+            right: 30px; /* Adjust this position as needed */
+            top: 30px; /* Adjust this position as needed */
+            width: 250px;
+            height: auto;
+            object-fit: contain;
+        }
+        .participant-container {
+            width: 100%;
+            max-width: 800px; /* Adjust max-width as needed */
+            background-color: rgba(34, 54, 86, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px; /* Space between the container and participant form */
+            color: white;
+        }
+        .form-group {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .form-group div {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .form-group div:last-child {
+            margin-right: 0;
+        }
+        input[type="text"], input[type="email"], input[type="tel"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .radio-group {
+            margin-bottom: 15px;
+        }
+        .radio-group label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Event Registration Form</h1>
+    <div class="line-divider">
+        <hr>
+    </div>
+    <div class="event-details1">
+        <p>Event Name: Digital Marketing Masterclass</p>
+        <p>Date: October 15, 2028</p>
+        <p>Time: 2:00 PM - 4:00 PM</p>
+        <p>Speaker: Sarah Johnson (Digital Marketing Expert)</p>
+        <p>Organizer: Rise Marketing</p>
+        <p>More Information: www.risemarketing.com</p>
+    </div>
+    <img src="eventimage.jpeg" alt="Event Image">
+</div>
+
+<div class="participant-container">
+    <h2>Participant Information</h2>
+    <form action="/submit_registration" method="post">
+        <div class="form-group">
+            <div>
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full_name" required>
+            </div>
+            <div>
+                <label for="dob">Date of Birth</label>
+                <input type="text" id="dob" name="dob" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+        </div>
+        <label for="source">Where did you hear about this virtual event?</label>
+        <select id="source" name="source" required>
+            <option value="Facebook">Facebook</option>
+            <option value="Youtube">Youtube</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Twitter">Twitter</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <label for="tickets">Number of Tickets</label>
+        <input type="text" id="tickets" name="tickets" required>
+
+        <label>Payment Method:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="payment_method" value="Credit Card" required> Credit Card</label>
+            <label><input type="radio" name="payment_method" value="Debit Card" required> Debit Card</label>
+            <label><input type="radio" name="payment_method" value="Cash" required> Cash</label>
+        </div>
+
+        <label>
+            <input type="checkbox" name="agreement" required>
+            I understand that participation in this event may involve some degree of risk. I release Rise Marketing from any liability for injury, loss, or damage to personal property.
+        </label>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+</body>
+</html>
